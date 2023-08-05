@@ -117,3 +117,10 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_URL = reverse_lazy("Home:login")
+
+LOGIN_REDIRECT_URL = reverse_lazy("Home:index")
+
+MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_URL = "/media/"
