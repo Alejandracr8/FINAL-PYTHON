@@ -14,19 +14,17 @@ class Usuario(models.Model):
 
 
 class Salida(models.Model):
-    vendedor = models.ForeignKey(Usuario, on_delete=models.DO_NOTHING)
-    producto = models.ForeignKey("producto.Producto", on_delete=models.DO_NOTHING)
+    nombre = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    numero_serie = models.CharField("Producto.Cilindro", on_delete=models.CASCADE)
+    tipo_gas = models.CharField(max_length=50)
     cantidad = models.PositiveIntegerField()
-    precio_total = models.DecimalField(max_digits=10, decimal_places=2, editable=False)
-    fecha_venta = models.DateTimeField(default=timezone.now, editable=False)
+    fecha_salida = models.DateTimeField(default=timezone.now, editable=False)
 
     class Meta:
-        ordering = ("-fecha_venta",)
+        ordering = ("-fecha_salida",)
 
     def clean(self):
-        if self.cantidad > self.producto.cantidad:
+        if self.cantidad > self.numero_serie.cantidad:
             raise ValidationError("La cantidad vendida no puede ser mayor a la cantidad disponible")
 
-    def save(self, *args, **kwargs):
-        self.precio_total = self.producto.precio * self.cantidad
-        super().save(*args, **kwargs)
+  

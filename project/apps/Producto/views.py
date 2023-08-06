@@ -37,11 +37,11 @@ class UbicacionDetail(DetailView):
 class UbicacionUpdate(UpdateView):
     model = models.Ubicacion
     form_class = forms.UbicacionForm
-    success_url = reverse_lazy("Producto:Ubicacion_list")
+    success_url = reverse_lazy("Producto:ubicacion_list")
 
 class UbicacionDelete(DeleteView):
     model = models.Ubicacion
-    success_url = reverse_lazy("Producto:Ubicacion_list")
+    success_url = reverse_lazy("Producto:ubicacion_list")
 
 #CILINDROS
 class CilindroList(ListView):

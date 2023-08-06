@@ -1,15 +1,13 @@
 from django import forms
+from .models import Cilindro, Ubicacion
 
-from . import models
+class CilindroForm(forms.ModelForm):
+    class Meta:
+        model = Cilindro
+        fields = ['numero_serie', 'tipo_gas', 'capacidad', 'ubicacion', 'fecha_ingreso']
 
 
 class UbicacionForm(forms.ModelForm):
     class Meta:
-        model = models.Ubicacion
-        fields = "__all__"
-
-
-class CilindroForm(forms.ModelForm):
-    class Meta:
-        model = models.Cilindro
-        fields = "__all__"
+        model = Ubicacion
+        fields = ['nombre', 'direccion']
