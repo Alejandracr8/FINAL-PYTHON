@@ -35,7 +35,7 @@ def register(request: HttpRequest) -> HttpResponse:
         if form.is_valid():
             username = form.cleaned_data["username"]
             form.save()
-            return render(request, "Home/index.html", {"mensaje": "Vendedor creado 😊"})
+            return render(request, "Home/index.html", {"mensaje": "Usuario creado"})
     else:
         form = forms.CustomUserCreationForm()
     return render(request, "Home/register.html", {"form": form})

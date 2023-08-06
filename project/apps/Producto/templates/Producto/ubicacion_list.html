@@ -10,6 +10,7 @@
         {% for object in object_list %}
             <ul>
                 <li>{{ object.nombre }}
+                    <a href="{% url 'Producto:ubicacion_list' object.id %}">Ver Productos</a>
                     <a href="{% url 'Producto:ubicacion_detail' object.id %}">Ver detalle</a>
                     <a href="{% url 'Producto:ubicacion_update' object.id %}">Actualizar</a>
                     <a href="{% url 'Producto:ubicacion_delete' object.id %}">Eliminar</a>

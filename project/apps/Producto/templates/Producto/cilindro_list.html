@@ -16,7 +16,7 @@
 
         {% for object in object_list %}
             <ul>
-                <li>{{ object.nombre }} ${{ object.precio }}
+                <li>{{ object.numero_serie }} {{ object.tipo_gas }}
                     <a href="{% url 'Producto:cilindro_detail' object.id %}" class="btn btn-secondary btn-sm">
                         Ver detalle</a>
                     <a href="{% url 'Producto:cilindro_update' object.id %}" class="btn btn-primary  btn-sm">
