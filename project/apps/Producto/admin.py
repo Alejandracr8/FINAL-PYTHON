@@ -7,9 +7,9 @@ admin.site.site_title = "Producto"
 
 @admin.register(models.Ubicacion)
 class UbicacionAdmin(admin.ModelAdmin):
-    list_display = ("nombre", "direccion")
+    list_display = ("nombre", "direccion",)
     list_filter = ("nombre",)
-    search_fields = ("nombre", "direccion")
+    search_fields = ("nombre", "direccion",)
     ordering = ("nombre",)
 
 
@@ -20,13 +20,13 @@ class CilindroAdmin(admin.ModelAdmin):
         "tipo_gas",
         "capacidad",
         "ubicacion",
-        "fecha_ingreso"
+        "fecha_ingreso",
     )
     list_display_links = ("numero_serie",)
     search_fields = ("numero_serie",)
     ordering = (
         "numero_serie",
-        "tipo_gas"
+        "tipo_gas",
     )
     list_filter = ("numero_serie",)
     date_hierarchy = "fecha_ingreso"
