@@ -21,3 +21,11 @@ urlpatterns += [
     path("cilindro/update/<int:pk>", views.CilindroUpdate.as_view(), name="cilindro_update"),
     path("cilindro/delete/<int:pk>", views.CilindroDelete.as_view(), name="cilindro_delete"),
 ]
+
+urlpatterns += [
+    path("salida/list/", views.CilindroList.as_view(), name="salida_list"),
+    path("salida/create/", views.CilindroCreate.as_view(), name="salida_create"),
+    path("salida/detail/<int:pk>", views.CilindroDetail.as_view(), name="salida_detail"),
+    path("salida/update/<int:pk>", views.CilindroUpdate.as_view(), name="salida_update"),
+    path("salida/delete/<int:pk>", views.CilindroDelete.as_view(), name="salida_delete"),
+]

@@ -12,8 +12,8 @@
 
                 <li class="nav-item"><a class="nav-link {% if request.path == "/Producto/" %} active  {% endif %}" href="{% url 'Producto:home' %}">Cilindros</a></li>
                 <li class="nav-item"><a class="nav-link text-bg-info">{{ user.username }}</a></li>
-                {% if user.vendedor.avatar.url %}
-                    <li class="nav-item"> <img src="{{ user.empleado.avatar.url }}" alt="avatar" class="" style="height: 30px;"></li>
+                {% if user.Empleado.avatar.url %}
+                    <li class="nav-item"> <img src="{{ user.Empleado.avatar.url }}" alt="avatar" class="" style="height: 30px;"></li>
                     {% else %}
                     <li class="nav-item"> <img src="{% static 'Usuarios/usuarios.png' %}" alt="avatar" class="" style="height: 30px;"></li>
                 {% endif %}  

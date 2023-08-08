@@ -11,17 +11,3 @@ class Empleado(models.Model):
     def __str__(self):
         return self.usuario.username
     
-class Registro(models.Model):
-    usuario = models.ForeignKey(Empleado, on_delete=models.DO_NOTHING)
-    producto = models.ForeignKey("Producto.Cilindro", on_delete=models.DO_NOTHING)
-    cantidad = models.PositiveIntegerField()
-    
-    fecha_salida = models.DateTimeField(default=timezone.now, editable=False)
-
-    class Meta:
-        ordering = ("-fecha_salida",)
-
-    def clean(self):
-        if self.cantidad > self.producto.cantidad:
-            raise ValidationError("La cantidad vendida no puede ser mayor a la cantidad disponible")
-

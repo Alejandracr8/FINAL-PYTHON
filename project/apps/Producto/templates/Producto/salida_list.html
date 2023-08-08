@@ -1,0 +1,27 @@
+{% extends 'Producto/index.html' %}
+
+{% block INDEX_TITULO %} 
+    Listado de salidas ingresadas
+{% endblock INDEX_TITULO %}
+
+{% block INDEX_CONTENIDO %}
+    {% if object_list %}
+
+        {% for object in object_list %}
+            <ul>
+                <li>{{ salida.numero_serie }}
+            
+                    <a href="{% url 'Producto:salida_detail' object.id %}">Ver detalle</a>
+                    <a href="{% url 'Producto:salida_update'  object.id%}">Actualizar</a>
+                    <a href="{% url 'Producto:salida_delete' object.id %}">Eliminar</a>
+                </li>
+            </ul>
+        {% endfor %}        
+    {% else %}
+        <p>no hay salidas ingresadas</p>
+
+    {% endif %}
+
+
+    {% include 'Home/index_back.html' %}
+{% endblock INDEX_CONTENIDO %}

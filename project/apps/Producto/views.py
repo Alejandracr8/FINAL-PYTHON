@@ -75,3 +75,36 @@ class CilindroUpdate(UpdateView):
 class CilindroDelete(DeleteView):
     model = models.Cilindro
     success_url = reverse_lazy("Producto:cilindro_list")
+
+
+class CilindroList(ListView):
+    model = models.Cilindro
+
+    def get_queryset(self) -> QuerySet[Any]:
+        if self.request.GET.get("consulta"):
+            consulta = self.request.GET.get("consulta")
+            object_list = models.Cilindro.objects.filter(nombre__icontains=consulta)
+        else:
+            object_list = models.Cilindro.objects.all()
+        return object_list
+
+#SALIDA
+class SalidaCreate(CreateView):
+    model = models.Salida
+    form_class = forms.SalidaForm
+    success_url = reverse_lazy("Producto:salida_list")
+
+
+class SalidaDetail(DetailView):
+    model = models.Salida
+
+
+class SalidaUpdate(UpdateView):
+    model = models.Salida
+    form_class = forms.SalidaForm
+    success_url = reverse_lazy("Producto:salida_list")
+
+
+class SalidaDelete(DeleteView):
+    model = models.Salida
+    success_url = reverse_lazy("Producto:salida_list")

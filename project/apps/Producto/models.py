@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.core.exceptions import ValidationError
 
 # Create your models here.
 
@@ -25,3 +26,18 @@ class Cilindro(models.Model):
     class Meta:
         verbose_name = "cilindro"
         verbose_name_plural = "cilindros"
+        
+class Salida(models.Model):
+    numero_serie = models.CharField(max_length=100, unique=True)
+    tipo_gas = models.CharField(max_length=50)
+    capacidad = models.IntegerField()
+    ubicacion = models.ForeignKey(Ubicacion, on_delete=models.CASCADE) 
+    fecha_salida = models.DateTimeField(default=timezone.now, editable=False)
+
+    class Meta:
+        ordering = ("-fecha_salida",)
+
+    def clean(self):
+        if self.capacidad > self.numero_serie.capacidad:
+            raise ValidationError("La cantidad vendida no puede ser mayor a la cantidad disponible")
+
