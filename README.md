@@ -1,6 +1,8 @@
 Nombre: Alejandra Caicedo
 Proyecto: Control de cilindros para la empresa Escogas
 
+DehoDejo mi link del video de youtube, con la explicación https://www.youtube.com/watch?v=GuSWTCoxUso
+
 La empresa se encarga de la distribución de gases industriales, y han perdido una gran cantidad de ellos debido al mal manejo en cuanto a el control, ya que no saben a quién se entregó. Lo que ocasiona una pérdida de dinero anual demasiado grande.
 
 La idea de este blog, es que un usuario de la empresa pueda llevar el control de todo lo que sale y entra, con las series y descripciones que vienen grabadas en los mismos cilindros. Y así saber donde están ubicados de forma actualizada
