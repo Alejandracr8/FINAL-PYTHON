@@ -6,7 +6,7 @@ from django.core.exceptions import ValidationError
 
 
 class Ubicacion(models.Model):
-    nombre = models.CharField(max_length=100)
+    nombre = models.CharField(max_length=100, null=True)
     direccion = models.CharField(max_length=200)
    
     def __str__(self):
@@ -39,5 +39,5 @@ class Salida(models.Model):
 
     def clean(self):
         if self.capacidad > self.numero_serie.capacidad:
-            raise ValidationError("La cantidad vendida no puede ser mayor a la cantidad disponible")
+            raise ValidationError("Sin stock, producto no se encuentra en inventario")
 
