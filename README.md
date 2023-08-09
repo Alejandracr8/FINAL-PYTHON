@@ -11,6 +11,5 @@ Y por último está un área en el blog, para ingresar las salidas de cada uno y
 
 ***PROBLEMAS***
 
-En algún momento de la creación del proyecto, se me dañaron los formularios y el botón de guardar no me está guardando los datos ingresados.
-He estado buscando por todos los archivos que tienen infidencia en el error, pero no lo logré y ya es muy tarde para empezar un proyecto nuevo.
+En algún momento del proyecto tuve problemas con el formulario, pero lo logré solucionar, lo otro con lo que he tenido invconvenientes es con el avatar, definitivamente lo logré que se viera. Me hace falta prácticar más con eso.
 
