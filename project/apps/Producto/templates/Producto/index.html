@@ -1,0 +1,51 @@
+{% extends 'Home/index.html' %}
+
+{% block INDEX_TITULO %} 
+    Productos
+{% endblock INDEX_TITULO %}
+
+{% block INDEX_CONTENIDO %}
+    
+    <h3 class="pb-lg-3 ">
+        Ubicacion de los Cilindros
+    </h3>
+    
+    <div class="d-grid gap-3 ">  
+        {% if user.is_staff %}
+            <a href="{% url 'Producto:ubicacion_create' %}" class="btn btn-primary ">Crear Ubicacion</a>
+            <br>
+        {% endif %}
+        <a href="{% url 'Producto:ubicacion_list' %}" class="btn btn-primary ">Listar ubicaciones de los Cilindros</a>
+        <br>
+    </div>
+    
+    <h3 class="pb-lg-3 ">
+        Cilindros
+    </h3>
+    
+    <div class="d-grid gap-3 ">  
+        {% if user.is_staff %}
+            <a href="{% url 'Producto:cilindro_create' %}" class="btn btn-primary ">Crear Cilindro</a>
+            <br>
+        {% endif %}
+        <a href="{% url 'Producto:cilindro_list' %}" class="btn btn-primary ">Listar Cilindros</a>
+        <br>
+    </div>
+
+    <h3 class="pb-lg-3 ">
+        Salidas 
+    </h3>
+    
+    <div class="d-grid gap-3 ">  
+        {% if user.is_staff %}
+            <a href="{% url 'Producto:salida_create' %}" class="btn btn-primary ">Crear Salida</a>
+            <br>
+        {% endif %}
+        <a href="{% url 'Producto:salida_list' %}" class="btn btn-primary ">Listar Salidas</a>
+        <br>
+    </div>
+
+
+    {% include 'Home/index_back.html' %}
+
+{% endblock INDEX_CONTENIDO %}

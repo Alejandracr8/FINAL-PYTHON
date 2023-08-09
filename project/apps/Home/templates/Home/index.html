@@ -1,0 +1,52 @@
+{% extends 'Home/base.html' %}
+{% load static %}
+
+{% block BASE_CONTENIDO %}
+
+    <div class="row align-items-center my-5">
+        <h1 class="pb-lg-3 text-bg-light">
+
+    {% block INDEX_TITULO %}
+    Inicio
+    {% endblock INDEX_TITULO %}
+        </h1>
+    </div>
+
+    {% block INDEX_CONTENIDO %}
+        {% if user.is_authenticated %}
+            {{ mensaje }}
+            <h3> Bienvenido {{ user.username }}</h3>
+        {% endif %}
+
+        {% if user.is_staff %}
+            <div class="row">
+                <a href="{% url 'admin:index' %}" class="btn btn-outline-dark">Panel de Administración</a>
+            </div>
+            <div class="row">
+                <a href="{% url 'Home:register' %}" class="btn btn-outline-dark">Registrar nuevo usuario</a>
+            </div>
+        {% endif %}
+    
+    <div class="row gx-4 gx-lg-5 align-items-center my-5">
+        <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'Home/img/escogas.jpg' %}"  alt="..." /></div>
+        <div class="col-lg-5">
+            <h1 class="font-weight-light">ESCOGAS SPA</h1>
+            <p> Empresa dedicada a la distribución de gases industriales</p>
+            
+        </div>
+    </div>
+    <!-- Call to Action-->
+    <div class="card text-white bg-secondary my-10 py-8 text-center">
+        <div class="card-body"><p class="text-white m-0">Nuestros Productos</p></div>
+    </div>
+    <!-- Content Row-->
+    <div class="row gx-4 gx-lg-5">
+        
+        {% include 'Home/info.html' %}
+        
+        
+        
+    </div>    
+    {% endblock INDEX_CONTENIDO %}
+    
+    {% endblock BASE_CONTENIDO %}
